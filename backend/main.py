@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 import ollama
+import sys
+import os
+from fastapi.staticfiles import StaticFiles
 
 import database 
 
@@ -68,3 +71,12 @@ def create_lore_entry(entry: LoreCreate, db: Session = Depends(get_db)):
 def get_lore_by_category(category: str, db: Session = Depends(get_db)):
     entries = db.query(database.LoreEntry).filter(database.LoreEntry.category == category).all()
     return entries
+
+if getattr(sys, 'frozen', False):
+    BASE_DIR = sys._MEIPASS
+else:
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+
+app.mount("/", StaticFiles(directory=STATIC_DIR, html=True), name="static")
