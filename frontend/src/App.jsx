@@ -122,13 +122,13 @@ function App() {
 
       } catch (error) {
         setIsTyping(false);
-        const errorResponse = {
+        const demoResponse = {
           id: Date.now() + 1,
           sender: 'SYS',
-          text: `[CRITICAL ERROR]: Neural link severed. Ensure the Python server is running.`,
-          isMarkdown: false
+          text: `**[DEMO MODE ACTIVE]**\n\nThe neural link to the local LLM Core is disconnected. You are viewing the static web preview.\n\nTo interact with the true Phi-3 AI and save records to the SQLite database, please clone the repository to your local hardware.`,
+          isMarkdown: true
         };
-        setMessages((prev) => [...prev, errorResponse]);
+        setMessages((prev) => [...prev, demoResponse]);
       }
     }
   };
