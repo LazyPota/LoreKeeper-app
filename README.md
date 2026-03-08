@@ -11,7 +11,7 @@ This project is a decoupled monorepo fused into a standalone executable:
 * **AI Engine:** Ollama running Microsoft's Phi-3 (Mini) locally
 * **Packaging:** PyInstaller
 
-## 🎮 How to Run (For Hack Club Reviewers)
+## 🎮 How to Run (For Hack Club Reviewers/Voters)
 
 Because this application guarantees total data privacy by running a machine learning model directly on your local hardware, it requires the Ollama engine to function.
 
